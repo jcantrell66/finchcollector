@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>FinchCollector List page!</h1>
+
+
+{% for bird in birds %}
+  <div class="card">
+      <a href="{% url 'detail' bird.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ bird.name }}</span>
+      <p>Species: {{ bird.breed }}</p>
+      <p>Description: {{ bird.description }}</p>
+      {% if bird.age > 0 %}
+        <p>Age: {{ bird.age }}</p>
+      {% else %}
+        <p>Age: Young bird</p>
+      {% endif %}
+    </div>
+    </a>
+  </div>
+{% endfor %}
+
+
+{% endblock %}
